@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
 import 'package:pcos/result.dart';
-
 
 class Requestoutput {
   final String data;
@@ -72,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
       c42.text,
       c43.text,
     ];
-    
+
     if (output.contains('')) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           backgroundColor: Colors.red,
@@ -154,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController c42 = TextEditingController();
   TextEditingController c43 = TextEditingController();
   Widget texfield(String lable, TextEditingController inputvalue,
-      List<TextInputFormatter> tf) {
+      List<TextInputFormatter> tf, TextInputType inputtype) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
@@ -166,6 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.white,
           ),
           cursorColor: Colors.white,
+          keyboardType: inputtype,
           controller: inputvalue,
           decoration: InputDecoration(
             focusedBorder: OutlineInputBorder(
@@ -229,108 +228,279 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   height: 30,
                 ),
-                texfield("Name", c1,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z. ]"))]),
-                texfield('Patient File No.', c2,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield(' Age (yrs)', c3,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Weight (Kg)', c4,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Height (Cm) ', c5,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('BMI', c6,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Blood Group', c7,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Pulse rate (bpm) ', c8,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('RR (breaths/min)', c9,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Hb (g/dl)', c10,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Cycle (R/I)', c11,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Cycle length (days)', c12,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Marraige Status (Yrs)', c13,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Pregnant (Y/N)', c14, [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
-                ]),
-                texfield('No. of abortions', c15,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('I   beta-HCG (mIU/mL)', c16,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('II    beta-HCG (mIU/mL)', c17,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('FSH (mIU/mL)', c18,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('LH (mIU/mL)', c19,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('FSH/LH', c20,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Hip (inch)', c21,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Waist (inch)', c22,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Waist:Hip Ratio', c23,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('TSH (mIU/L)', c24,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('AMH (ng/mL)', c25,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('PRL (ng/mL)', c26,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Vit D3 (ng/mL)', c27,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('PRG (ng/mL)', c28,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('RBS (mg/dl)', c29,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Weight gain (Y/N)', c30, [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
-                ]),
-                texfield('hair growth (Y/N)', c31, [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
-                ]),
-                texfield('Skin darkening (Y/N)', c32, [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
-                ]),
-                texfield('Hair loss (Y/N)', c33, [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
-                ]),
-                texfield('Pimples (Y/N)', c34, [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
-                ]),
-                texfield('Fast food (Y/N)', c35, [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
-                ]),
-                texfield('Reg.Exercise (Y/N)', c36, [
-                  LengthLimitingTextInputFormatter(1),
-                  FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
-                ]),
-                texfield('BP _Systolic (mmHg)', c37,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('BP _Diastolic (mmHg)', c38,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Follicle No. (L)', c39,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Follicle No. (R)', c40,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Avg. F size (L) (mm)', c41,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Avg. F size (R) (mm)', c42,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
-                texfield('Endometrium (mm)', c43,
-                    [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))]),
+                texfield(
+                    "Name",
+                    c1,
+                    [FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z. ]"))],
+                    TextInputType.name),
+                texfield(
+                  'Patient File No.',
+                  c2,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  ' Age (yrs)',
+                  c3,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Weight (Kg)',
+                  c4,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Height (Cm) ',
+                  c5,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'BMI',
+                  c6,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Blood Group',
+                  c7,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Pulse rate (bpm) ',
+                  c8,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'RR (breaths/min)',
+                  c9,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Hb (g/dl)',
+                  c10,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Cycle (R/I)',
+                  c11,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Cycle length (days)',
+                  c12,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Marraige Status (Yrs)',
+                  c13,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                    'Pregnant (Y/N)',
+                    c14,
+                    [
+                      LengthLimitingTextInputFormatter(1),
+                      FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
+                    ],
+                    TextInputType.name),
+                texfield(
+                  'No. of abortions',
+                  c15,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'I   beta-HCG (mIU/mL)',
+                  c16,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'II    beta-HCG (mIU/mL)',
+                  c17,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'FSH (mIU/mL)',
+                  c18,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'LH (mIU/mL)',
+                  c19,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'FSH/LH',
+                  c20,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Hip (inch)',
+                  c21,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Waist (inch)',
+                  c22,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Waist:Hip Ratio',
+                  c23,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'TSH (mIU/L)',
+                  c24,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'AMH (ng/mL)',
+                  c25,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'PRL (ng/mL)',
+                  c26,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Vit D3 (ng/mL)',
+                  c27,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'PRG (ng/mL)',
+                  c28,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'RBS (mg/dl)',
+                  c29,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                    'Weight gain (Y/N)',
+                    c30,
+                    [
+                      LengthLimitingTextInputFormatter(1),
+                      FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
+                    ],
+                    TextInputType.name),
+                texfield(
+                    'hair growth (Y/N)',
+                    c31,
+                    [
+                      LengthLimitingTextInputFormatter(1),
+                      FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
+                    ],
+                    TextInputType.name),
+                texfield(
+                    'Skin darkening (Y/N)',
+                    c32,
+                    [
+                      LengthLimitingTextInputFormatter(1),
+                      FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
+                    ],
+                    TextInputType.name),
+                texfield(
+                    'Hair loss (Y/N)',
+                    c33,
+                    [
+                      LengthLimitingTextInputFormatter(1),
+                      FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
+                    ],
+                    TextInputType.name),
+                texfield(
+                    'Pimples (Y/N)',
+                    c34,
+                    [
+                      LengthLimitingTextInputFormatter(1),
+                      FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
+                    ],
+                    TextInputType.name),
+                texfield(
+                    'Fast food (Y/N)',
+                    c35,
+                    [
+                      LengthLimitingTextInputFormatter(1),
+                      FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
+                    ],
+                    TextInputType.name),
+                texfield(
+                    'Reg.Exercise (Y/N)',
+                    c36,
+                    [
+                      LengthLimitingTextInputFormatter(1),
+                      FilteringTextInputFormatter.allow(RegExp("y|n|Y|N"))
+                    ],
+                    TextInputType.name),
+                texfield(
+                  'BP _Systolic (mmHg)',
+                  c37,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'BP _Diastolic (mmHg)',
+                  c38,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Follicle No. (L)',
+                  c39,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Follicle No. (R)',
+                  c40,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Avg. F size (L) (mm)',
+                  c41,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Avg. F size (R) (mm)',
+                  c42,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
+                texfield(
+                  'Endometrium (mm)',
+                  c43,
+                  [FilteringTextInputFormatter.allow(RegExp(r"[0-9.]"))],
+                  TextInputType.number,
+                ),
               ],
             )),
           ),
