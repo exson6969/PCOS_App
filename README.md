@@ -9,3 +9,5 @@ Polycystic ovary syndrome(PCOS)  is a disorder involving infrequent, irregular o
 - Beta-HCG cases are mentioned as Case I and II
 - Blood Group indications: A+ = 11, A- = 12, B+ = 13, B- = 14, O+ =15, O- = 16, AB+ =17, AB- = 18
 - For every Yes/No questions *** , Indicate Yes = 1 ; No= 0
+
+dataset : author = Prasoon Kottarathil
