@@ -11,3 +11,11 @@ Polycystic ovary syndrome(PCOS)  is a disorder involving infrequent, irregular o
 - For every Yes/No questions *** , Indicate Yes = 1 ; No= 0
 
 dataset : author = Prasoon Kottarathil
+
+# Screenshot
+<br>
+### Input page
+<img src= "https://github.com/exson6969/PCOS_App/blob/main/Screenshots/Screenshot_2022-06-01-18-17-05-867_com.example.pcos.jpg">
+<br>
+### Output Page
+<img src= "https://github.com/exson6969/PCOS_App/blob/main/Screenshots/Screenshot_2022-06-01-18-42-01-325_com.example.pcos.jpg">
