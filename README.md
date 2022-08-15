@@ -15,7 +15,7 @@ dataset : author = Prasoon Kottarathil
 # Screenshot
 <br>
 ## Input page
-<img src= "https://github.com/exson6969/PCOS_App/blob/main/Screenshots/Screenshot_2022-06-01-18-17-05-867_com.example.pcos.jpg" width="108px" height="192px">
+<img src= "https://github.com/exson6969/PCOS_App/blob/main/Screenshots/Screenshot_2022-06-01-18-17-05-867_com.example.pcos.jpg" width="324px" height="576px">
 <br>
 ## Output Page
-<img src= "https://github.com/exson6969/PCOS_App/blob/main/Screenshots/Screenshot_2022-06-01-18-42-01-325_com.example.pcos.jpg" width="108px" height="192px">
+<img src= "https://github.com/exson6969/PCOS_App/blob/main/Screenshots/Screenshot_2022-06-01-18-42-01-325_com.example.pcos.jpg" width="324px" height="576px">
